@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -7,10 +8,9 @@ import { selectedProduct, removeSelectedProduct } from '../redux/actions/product
 function ProductDetail() {
     const product = useSelector((state) => state.product)
     const {image, title, price, category, description} = product
-    const {productId} = useParams()
+    const { productId } = useParams()
     const dispatch = useDispatch()
     console.log(productId)
-
     const fetchProductDetail = async () => {
         const response = await axios
             .get(`https://fakestoreapi.com/products/${productId}`)
